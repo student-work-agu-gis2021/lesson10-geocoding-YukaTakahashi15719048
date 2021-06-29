@@ -10,8 +10,11 @@
 import geopandas as gpd
 import pandas as pd
 # Read the data (replace "None" with your own code)
-data = None
+data = pd.read_table('shopping_centers.txt',sep=';', header=None)
+
 # YOUR CODE HERE 1 to read the data
+data.index.name = 'id'
+data.columns=['name', 'addr']
 
 #TEST COEE
 # Check your input data
@@ -26,6 +29,7 @@ from geopandas.tools import geocode
 # Geocode addresses using Nominatim. Remember to provide a custom "application name" in the user_agent parameter!
 #YOUR CODE HERE 2 for geocoding
 
+
 #TEST CODE
 # Check the geocoded output
 print(geo)
@@ -38,6 +42,7 @@ print(type(geo))
 # Check that the coordinate reference system of the geocoded result is correctly defined, and **reproject the layer into JGD2011** (EPSG:6668):
 
 # YOUR CODE HERE 3 to set crs.
+
 
 #TEST CODE
 # Check layer crs
