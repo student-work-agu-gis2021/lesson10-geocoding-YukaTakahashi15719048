@@ -14,8 +14,7 @@ fp  = 'shopping_centers.txt'
 data = pd.read_table(fp, sep=';', header=None)
 
 # YOUR CODE HERE 1 to read the data
-data.index.name = 'id'
-data.columns=['name', 'addr']
+data.columns=['id','name', 'addr']
 
 #TEST COEE
 # Check your input data
@@ -44,7 +43,9 @@ print(type(geo))
 # Check that the coordinate reference system of the geocoded result is correctly defined, and **reproject the layer into JGD2011** (EPSG:6668):
 
 # YOUR CODE HERE 3 to set crs.
-
+from pyproj import CRS
+geo = geo.to_crs(CRS.from_epsg(3879))
+geodata = geo.join(data)
 
 #TEST CODE
 # Check layer crs
