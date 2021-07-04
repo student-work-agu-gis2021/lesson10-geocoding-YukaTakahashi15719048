@@ -44,7 +44,7 @@ print(type(geo))
 
 # YOUR CODE HERE 3 to set crs.
 from pyproj import CRS
-geo = geo.to_crs(CRS.from_epsg(3879))
+geo = geo.to_crs(CRS.from_epsg(6668))
 geodata = geo.join(data)
 
 #TEST CODE
@@ -53,7 +53,7 @@ print(geo.crs)
 
 
 # YOUR CODE HERE 4 to join the tables
-geodata = None
+geodata = geo.join(data)
 
 #TEST CODE
 # Check the join output
@@ -77,6 +77,7 @@ print("Geocoded output is stored in this file:", out_fp)
  
 
 # YOUR CODE HERE 6 to create a new column
+geodata['buffer']=None
 
 # YOUR CODE HERE 7 to set buffer column
 
