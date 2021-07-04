@@ -147,8 +147,11 @@ for i, group in grouped:
 # **Reflections:**
 #     
 # - How challenging did you find problems 1-3 (on scale to 1-5), and why?
+##Everything was difficult...
 # - What was easy?
+##To read and save the data of Problem 1. 
 # - What was difficult?
+##to use CRS!!!
 
 # YOUR ANSWER HERE
 
