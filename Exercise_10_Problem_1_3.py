@@ -65,6 +65,8 @@ print(geodata.head())
 # Define output filepath
 out_fp = None
 # YOUR CODE HERE 5 to save the output
+with open('shopping_centers.shp', 'w') as out_fp:
+  print(geodata, file=out_fp)
 
 # TEST CODE
 # Print info about output file
@@ -98,6 +100,7 @@ print(round(gpd.GeoSeries(geodata["buffer"]).area / 1000000))
 # - Replace the values in `geometry` column with the values of `buffer` column:
 
 # YOUR CODE HERE 8 to replace the values in geometry
+geodata['geometry'] = geodata['buffer']
 
 #TEST CODE
 print(geodata.head())
@@ -110,6 +113,7 @@ print(geodata.head())
 
 # YOUR CODE HERE 9
 # Read population grid data for 2018 into a variable `pop`. 
+
 
 #TEST CODE
 # Check your input data
