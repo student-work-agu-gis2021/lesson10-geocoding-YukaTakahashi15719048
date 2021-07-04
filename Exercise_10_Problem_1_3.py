@@ -112,8 +112,18 @@ print(geodata.head())
 # 
 
 # YOUR CODE HERE 9
-# Read population grid data for 2018 into a variable `pop`. 
+# Read population grid data for 2018 into a variable `pop`.
+import requests 
+import geojson
+url = 'https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-mesh500h30.html#prefecture13'
+params = dict(service='WFS',version='2.0.0',request='GetFeature',
+              typeName='500m_mesh_2018_13.shp',outputFormat='json')
+r = requests.get(url, params=params)
+pop = gpd.GeoDataFrame.from_features(geojson.loads(r.content))
 
+pop = pop[['PTN_2020', 'geometry' ]]
+pop.crs = CRS.from_epsg(4612).to_wkt()
+geodata = geodata.to_crs(pop.crs)
 
 #TEST CODE
 # Check your input data
