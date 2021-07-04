@@ -65,8 +65,8 @@ print(geodata.head())
 # Define output filepath
 out_fp = None
 # YOUR CODE HERE 5 to save the output
-with open('shopping_centers.shp', 'w') as out_fp:
-  print(geodata, file=out_fp)
+fp = 'shopping_centers.shp'
+geo.to_file(fp)
 
 # TEST CODE
 # Print info about output file
