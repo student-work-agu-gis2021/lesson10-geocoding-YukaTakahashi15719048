@@ -121,7 +121,7 @@ params = dict(service='WFS',version='2.0.0',request='GetFeature',
 r = requests.get(url, params=params)
 pop = gpd.GeoDataFrame.from_features(geojson.loads(r.content))
 
-pop = pop[['PTN_2020', 'geometry' ]]
+pop = pop[[ 'geometry','PTN_2020' ]]
 pop.crs = CRS.from_epsg(4612).to_wkt()
 geodata = geodata.to_crs(pop.crs)
 
@@ -140,6 +140,9 @@ join = gpd.sjoin(geodata, pop, how="inner", op="intersects")
 
 
 # YOUR CODE HERE 11 to report how many people live within 1.5 km distance from each shopping center
+grouped = join.groupby('name')
+for i, group in grouped:
+    print('store: ', i,'  ; population:', sum(group['PTN_2020']))
 
 # **Reflections:**
 #     
