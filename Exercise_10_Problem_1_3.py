@@ -136,6 +136,7 @@ print(pop.head(3))
 
 # Create a spatial join between grid layer and buffer layer. 
 # YOUR CDOE HERE 10 for spatial join
+join = gpd.sjoin(geodata, pop, how="inner", op="intersects")
 
 
 # YOUR CODE HERE 11 to report how many people live within 1.5 km distance from each shopping center
